@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class ButtonHandler : MonoBehaviour
     void Register()
     {
         Debug.Log("Register selected. Load Regsister Scene.");
+        SceneManager.LoadScene("Register");
     }
 
     void exitGame()
@@ -31,4 +32,7 @@ public class ButtonHandler : MonoBehaviour
         Debug.Log("Exit selected. Quit Application.");
         Application.Quit();
     }
+
+  
+ 
 }
