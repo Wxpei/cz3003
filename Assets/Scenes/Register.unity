@@ -640,7 +640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter name..
 --- !u!222 &135797557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12805,7 +12805,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter email..
 --- !u!222 &318483057
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13548,7 +13548,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter username..
 --- !u!222 &1129786159
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14006,7 +14006,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter password..
 --- !u!222 &1359170101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14337,19 +14337,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1660634282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2023767477}
-        m_TargetAssemblyTypeName: BackToMenu, Assembly-CSharp
-        m_MethodName: goBackToMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1660634282
 MonoBehaviour:
   m_ObjectHideFlags: 0
