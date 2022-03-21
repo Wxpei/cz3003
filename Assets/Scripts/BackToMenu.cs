@@ -9,7 +9,7 @@ public class BackToMenu : MonoBehaviour
     public void goBackToMenu()
     {
         Debug.Log("Register selected. Load Regsister Scene.");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("login");
     }
 
 }
