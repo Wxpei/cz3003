@@ -79,3 +79,5 @@ Assets/Scripts/PHP scripts/register.php.meta
 Assets/Scripts/PHP scripts/testing.php.meta
 
 ProjectSettings/EditorBuildSettings.asset
+
+*.meta
