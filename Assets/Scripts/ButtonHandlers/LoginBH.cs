@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonHandler : MonoBehaviour
+public class LoginBH : MonoBehaviour
 {
     public Button loginButton, registerButton, exitButton;
 
@@ -19,6 +19,7 @@ public class ButtonHandler : MonoBehaviour
     void Login()
     {
         Debug.Log("Login selected. Load Login Scene.");
+        SceneManager.LoadScene("Main Menu (Student)");
     }
 
     void Register()
@@ -32,7 +33,4 @@ public class ButtonHandler : MonoBehaviour
         Debug.Log("Exit selected. Quit Application.");
         Application.Quit();
     }
-
-  
- 
 }
