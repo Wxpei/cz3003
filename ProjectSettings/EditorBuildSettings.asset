@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Register.unity
     guid: 5f11415d8c8c7ab46b73777bdc4df9fd
+  - enabled: 1
+    path: Assets/Scenes/Main Menu (Student).unity
+    guid: dfc11a0a62de70348bc7e77bf4d7988c
+  - enabled: 1
+    path: Assets/Scenes/Main Menu (Teacher).unity
+    guid: 526328b92415bae4f87e9c2608ee4458
   m_configObjects: {}
