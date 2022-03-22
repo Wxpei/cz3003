@@ -70,3 +70,14 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Scripts/PHP scripts.meta
+
+Assets/Scripts/PHP scripts/login.php.meta
+
+Assets/Scripts/PHP scripts/register.php.meta
+
+Assets/Scripts/PHP scripts/testing.php.meta
+
+ProjectSettings/EditorBuildSettings.asset
+
+*.meta

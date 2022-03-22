@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonHandler : MonoBehaviour
+public class LoginBH : MonoBehaviour
 {
     public Button loginButton, registerButton, exitButton;
     public InputField userInput;
@@ -26,22 +26,8 @@ public class ButtonHandler : MonoBehaviour
     
     public void loginDetails()
     {
-        //Get Username from Input then convert it to int
-        string userName = userInput.text;
-        //Get Password from Input 
-        string password = passwordInput.text;
-
-        string foundPassword;
-        if (userDetails.TryGetValue(userName, out foundPassword) && (foundPassword == password))
-        {
-            Debug.Log("User authenticated");
-            SceneManager.LoadScene("StudentMainMenu");
-        }
-        else
-        {
-            textDisplay.GetComponent<Text>().text = "Invalid username or password";
-            Debug.Log("Invalid username or password");
-        }
+        Debug.Log("Login selected. Load Login Scene.");
+        SceneManager.LoadScene("Main Menu (Student)");
     }
 
     void Register()
@@ -55,7 +41,4 @@ public class ButtonHandler : MonoBehaviour
         Debug.Log("Exit selected. Quit Application.");
         Application.Quit();
     }
-
-  
- 
 }
