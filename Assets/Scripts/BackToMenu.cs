@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class BackToMenu : MonoBehaviour
 {
-    public void goBackToMenu()
+    public Button backButton;
+    void Start()
     {
         Debug.Log("Register selected. Load Regsister Scene.");
         SceneManager.LoadScene("login");
