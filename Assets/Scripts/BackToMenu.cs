@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class BackToMenu : MonoBehaviour
 {
-    public void goBackToMenu()
+    public Button backButton;
+    void Start()
     {
-        Debug.Log("Register selected. Load Regsister Scene.");
-        SceneManager.LoadScene("MainMenu");
+        //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
+        backButton.onClick.AddListener(Back);
+    }
+    public void Back()
+    {
+        SceneManager.LoadScene("Login");
+        Debug.Log("Back selected. Load Login Scene.");
     }
 
 }
