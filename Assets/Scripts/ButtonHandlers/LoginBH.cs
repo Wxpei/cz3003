@@ -10,11 +10,6 @@ public class LoginBH : MonoBehaviour
     public InputField userInput;
     public InputField passwordInput;
     public GameObject textDisplay;
-    Dictionary<string, string> userDetails = new Dictionary<string, string>
-    {
-        {"xuanying", "since2001"},
-        {"sherelyn912", "since2001"}
-    };
 
     void Start()
     {
