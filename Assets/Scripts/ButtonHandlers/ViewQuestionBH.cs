@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Networking;
+using SimpleJSON;
+using System;
 
 public class ViewQuestionBH : MonoBehaviour
 {
 
-    public Button goBackButton, exitButton;
+
+
+    public Button goBackButton, exitButton, questionButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +28,14 @@ public class ViewQuestionBH : MonoBehaviour
         Application.Quit();
     }
 
+
+
+
+
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
