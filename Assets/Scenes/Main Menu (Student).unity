@@ -12847,7 +12847,7 @@ GameObject:
   - component: {fileID: 1041750217}
   - component: {fileID: 1041750216}
   m_Layer: 0
-  m_Name: SettingsScript
+  m_Name: MainMenuStudentScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12862,9 +12862,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1041750215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8f71cb3c661c74f970b0f87c6761f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 588999f5c6315854eb5602d7e8ecd94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitButton: {fileID: 1334086487}
+  singlePlayerButton: {fileID: 157235454}
+  multiPlayerButton: {fileID: 1812916178}
+  editProfileButton: {fileID: 1167436539}
+  settingsButton: {fileID: 1118456511}
 --- !u!4 &1041750217
 Transform:
   m_ObjectHideFlags: 0
@@ -13471,7 +13476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 634, y: 337}
+  m_AnchoredPosition: {x: 893, y: 485}
   m_SizeDelta: {x: -1287.2384, y: -696.9466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1334086487
