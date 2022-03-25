@@ -1,4 +1,5 @@
-// Import the following into your individual script file
+// Import all the following into your individual script file
+// P.S : Please see line 287
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,7 +66,7 @@ public class ButtonHandler : MonoBehaviour
             }
            else
            {
-               Debug.Log(www.downloadHandler.text);  
+               Debug.Log(www.downloadHandler.text);  // 0 = login fail | 1 = student | 2 = admin
                Register();
            }
        }
@@ -248,7 +249,7 @@ public class ButtonHandler : MonoBehaviour
  
 }
 
-
+// Classes to store data from database
 [Serializable]
 public class questionData
 {
@@ -283,7 +284,7 @@ public class leaderboard_list {
     public leaderboardData[] leaderboard_data;
 }
 
-
+// Please copy the functions below to everyfile scriptfile
 public static class JsonHelper
 {
     public static T[] FromJson<T>(string json)
