@@ -8,15 +8,67 @@ using SimpleJSON;
 using System;
 
 
+ public class CoroutineWithData {
+     public Coroutine coroutine { get; private set; }
+     public object result;
+     private IEnumerator target;
+     public CoroutineWithData(MonoBehaviour owner, IEnumerator target) {
+         this.target = target;
+         this.coroutine = owner.StartCoroutine(Run());
+     }
+ 
+     private IEnumerator Run() {
+         while(target.MoveNext()) {
+             result = target.Current;
+             yield return result;
+         }
+     }
+ }
+
 public class QuestionList : MonoBehaviour
 {
-        public Button getQuestionButton;
         public IEnumerator coroutine; 
         public Transform topicList, diffList;
-
+        public GameObject prefabButton;
+        public RectTransform ParentPanel;
     
 
 
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+          getQuestion(getTopic(), getDiff());
+        // getQuestionButton.onClick.AddListener(getQuestion);
+
+   
+        //  for(int i = 0; i < 5; i++)
+        // {
+        //     GameObject goButton = (GameObject)Instantiate(prefabButton);
+        //     goButton.transform.SetParent(ParentPanel, false);
+        //     goButton.transform.localScale = new Vector3(1, 1, 1);
+
+        //     Button tempButton = goButton.GetComponent<Button>();
+        //     int tempInt = i;
+        //     tempButton.GetComponentInChildren<Text>().text = "my button text";
+
+        //     tempButton.onClick.AddListener(() => ButtonClicked(tempInt));
+        // }
+
+     
+
+    }
+
+      void ButtonClicked(int buttonNo)
+    {
+        Debug.Log ("Button clicked = " + buttonNo);
+    }
+
+
+    
     string getTopic(){
         int topicIndex = topicList.GetComponent<Dropdown> ().value;
 
@@ -38,15 +90,6 @@ public class QuestionList : MonoBehaviour
         return diff;
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        getQuestion(getTopic(), getDiff());
-        // getQuestionButton.onClick.AddListener(getQuestion);
-    }
-
     void getQuestion(string topic, string diff){
         coroutine = get_questions(topic,diff);
         StartCoroutine(coroutine);
@@ -64,22 +107,22 @@ public class QuestionList : MonoBehaviour
            yield return www.SendWebRequest();
             if (www.result != UnityWebRequest.Result.Success)
             {
-                Debug.Log("got error:");
                 Debug.Log(www.error);
             }
            else
            {
                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
                string jsonArray = www.downloadHandler.text;
-               Debug.Log("here");
                Debug.Log(jsonArray);
-               Debug.Log("here2");
                questionData_list questionlist = JsonUtility.FromJson<questionData_list>("{\"question_data\": " + jsonArray + "}");
 			   //As there maybe multiple outputs, we have to store the results as a list
                // Select the first line from the collection, and print its dialogue:
+               List<string> tempList = new List<string>();
+
                for(int i =0; i<2;i++)
                {
                Debug.Log("User 1  = " + questionlist.question_data[i].question_description);
+               tempList.Add(questionlist.question_data[i].question_description);
                Debug.Log("User 1  = " + questionlist.question_data[i].answer_1);
                Debug.Log("User 1  = " + questionlist.question_data[i].answer_2);
                Debug.Log("User 1  = " + questionlist.question_data[i].answer_3);
@@ -89,6 +132,22 @@ public class QuestionList : MonoBehaviour
 			   Debug.Log("User 1  = " + questionlist.question_data[i].difficulty);
 			   Debug.Log("User 1  = " + questionlist.question_data[i].assignment_id);
                 }
+
+                 for(int i = 0; i < tempList.Count; i++)
+        {
+            GameObject goButton = (GameObject)Instantiate(prefabButton);
+            goButton.transform.SetParent(ParentPanel, false);
+            goButton.transform.localScale = new Vector3(1, 1, 1);
+
+            Button tempButton = goButton.GetComponent<Button>();
+            int tempInt = i;
+            tempButton.GetComponentInChildren<Text>().text = tempList[i];
+
+            tempButton.onClick.AddListener(() => ButtonClicked(tempInt));
+        }
+
+            
+            
            }
        }
    }
