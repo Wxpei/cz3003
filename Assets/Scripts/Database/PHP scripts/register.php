@@ -6,14 +6,14 @@
 
 	//variables submitted by user
 	
-	//$username = $_POST["username"];
-	//$password = $_POST["password"];
-	//$name = $_POST["name"];
-	//$email = $_POST["email"];
-	$username = "john555";
-	$password = "123";
-	$name = "test";
-	$email = "test";
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	// $username = "john555";
+	// $password = "123";
+	// $name = "test";
+	// $email = "test";
 
 	$conn = new mysqli($host,$db_username,$db_password,$db_name);
 	if($conn->connect_error)
