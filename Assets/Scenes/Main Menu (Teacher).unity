@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 603795261}
   - component: {fileID: 603795260}
   m_Layer: 0
-  m_Name: MainMenuScripts
+  m_Name: MainMenuTeacherScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -37,7 +37,8 @@ public class MainMenuBH : MonoBehaviour
 
     void editProfile()
     {
-        Debug.Log("Multi player selected. Load Login.");
+        Debug.Log("Profile selected. Load Profile.");
+        SceneManager.LoadScene("Profile");
     }
 
     void settings()
