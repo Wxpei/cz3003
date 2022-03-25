@@ -27,6 +27,7 @@ public class MainMenuBH : MonoBehaviour
     void singlePlayerMode()
     {
         Debug.Log("Single player selected. Load Login.");
+        SceneManager.LoadScene("World Selection");
     }
 
     void multiPlayerMode()
@@ -41,7 +42,7 @@ public class MainMenuBH : MonoBehaviour
 
     void settings()
     {
-        Debug.Log("Multi player selected. Load Login.");
+        Debug.Log("Settings selected. Load Login.");
+        SceneManager.LoadScene("Setting");
     }
-
 }
