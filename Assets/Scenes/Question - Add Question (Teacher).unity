@@ -771,7 +771,7 @@ RectTransform:
   - {fileID: 1173859493}
   - {fileID: 1199458457}
   m_Father: {fileID: 1333490072}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 555430739}
   - component: {fileID: 555430740}
   m_Layer: 5
-  m_Name: 'Toggle - Option2Answer '
+  m_Name: 'Option2Answer '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14036,7 +14036,7 @@ GameObject:
   - component: {fileID: 762245623}
   - component: {fileID: 762245624}
   m_Layer: 5
-  m_Name: Toggle - Option1Answer
+  m_Name: Option1Answer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15885,7 +15885,7 @@ GameObject:
   - component: {fileID: 1173859493}
   - component: {fileID: 1173859494}
   m_Layer: 5
-  m_Name: 'Toggle - Option3Answer '
+  m_Name: 'Option3Answer '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15970,7 +15970,7 @@ GameObject:
   - component: {fileID: 1199458457}
   - component: {fileID: 1199458458}
   m_Layer: 5
-  m_Name: Toggle - Option4Answer
+  m_Name: Option4Answer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16714,8 +16714,8 @@ RectTransform:
   - {fileID: 1841946418}
   - {fileID: 962185883}
   - {fileID: 42881745}
-  - {fileID: 1957027556}
   - {fileID: 127994717}
+  - {fileID: 1957027556}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18687,7 +18687,7 @@ RectTransform:
   m_Children:
   - {fileID: 1720531955}
   m_Father: {fileID: 1333490072}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

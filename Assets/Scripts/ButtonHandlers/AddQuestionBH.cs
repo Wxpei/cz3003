@@ -25,7 +25,7 @@ public class AddQuestionBH : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        toggleGroup = GetComponent<ToggleGroup>();
+        // toggleGroup = GetComponent<ToggleGroup>();
         goBackButton.onClick.AddListener(goBackQuestionBank);
         exitButton.onClick.AddListener(exitGame);
         saveButton.onClick.AddListener(saveQuestion);
@@ -33,9 +33,9 @@ public class AddQuestionBH : MonoBehaviour
     
     }
 
-    // public Toggle currentSelection{
-    //     get { return toggleGroup.ActiveToggles().FirstOrDefault();}
-    // }
+    public Toggle currentSelection{
+        get { return toggleGroup.ActiveToggles().FirstOrDefault();}
+    }
 
     string getTopic(){
         int topicIndex = topicList.GetComponent<Dropdown> ().value;
@@ -63,12 +63,32 @@ public class AddQuestionBH : MonoBehaviour
         Debug.Log(desc.text);
         Debug.Log("Save question button pressed");
         // Debug.Log("selected " + currentSelection.name);
+        string correct_selection = currentSelection.name; 
+        Debug.Log("current selection: " + correct_selection);
         string question_description = desc.text;
         string answer_1 = option1.text;
         string answer_2 = option2.text;
         string answer_3 = option3.text;
         string answer_4 = option4.text;
-        string correct_answer = option1.text; //Hardcode for now 
+        string correct_answer; 
+        switch (correct_selection){
+            case "Option1Answer":
+                correct_answer = option1.text;
+                break;
+            case "Option2Answer": 
+                correct_answer = option2.text;
+                break;
+            case "Option3Answer":
+                correct_answer = option3.text;
+                break;
+            case "Option4Answer":
+                correct_answer = option4.text;
+                break;
+            default:
+                correct_answer = option1.text;
+                break;
+        }
+ 
         string topic = getTopic(); 
         string difficulty = getDiff();
         Debug.Log(topic);
