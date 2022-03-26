@@ -41,7 +41,7 @@ public class QuestionList : MonoBehaviour
     void Start()
     {
         
-          getQuestion(getTopic(), getDiff());
+        //   getQuestion(getTopic(), getDiff());
         // getQuestionButton.onClick.AddListener(getQuestion);
 
    

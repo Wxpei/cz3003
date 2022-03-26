@@ -5,7 +5,7 @@
 	$db_name = "cz3003"; // Database name 
 
 	//variables submitted by user
-    $question_description = $_POST["questions_description"];
+    $question_description = $_POST["question_description"];
     $answer_1 = $_POST["answer_1"];
     $answer_2 = $_POST["answer_2"];
     $answer_3 = $_POST["answer_3"];
