@@ -672,6 +672,7 @@ MonoBehaviour:
   diffList: {fileID: 2008948523}
   prefabButton: {fileID: 1272972060}
   ParentPanel: {fileID: 1813395162}
+  loadButton: {fileID: 1272972061}
 --- !u!4 &177421695
 Transform:
   m_ObjectHideFlags: 0
@@ -14209,6 +14210,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8745362017539724085, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
   m_PrefabInstance: {fileID: 6751811351516988013}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1272972061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+  m_PrefabInstance: {fileID: 6751811351516988013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272972060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1277904526
 GameObject:
   m_ObjectHideFlags: 0
@@ -15158,7 +15170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goBackButton: {fileID: 1482468495}
   exitButton: {fileID: 149347568}
-  questionButton: {fileID: 0}
+  loadButton: {fileID: 0}
 --- !u!4 &1718472406
 Transform:
   m_ObjectHideFlags: 0

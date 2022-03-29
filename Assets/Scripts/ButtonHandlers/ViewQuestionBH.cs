@@ -12,12 +12,13 @@ public class ViewQuestionBH : MonoBehaviour
 
 
 
-    public Button goBackButton, exitButton, questionButton;
+    public Button goBackButton, exitButton, loadButton;
     // Start is called before the first frame update
     void Start()
     {
         goBackButton.onClick.AddListener(goBackQuestionBank);
         exitButton.onClick.AddListener(exitGame);
+        //loadButton.onClick.AddListener(loadQuestions);
     }
 
     public void goBackQuestionBank(){
@@ -28,7 +29,9 @@ public class ViewQuestionBH : MonoBehaviour
         Application.Quit();
     }
 
-
+    // public void loadQuestions(){
+        
+    // }
 
 
 
