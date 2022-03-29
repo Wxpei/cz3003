@@ -25,7 +25,6 @@ public class AddQuestionBH : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // toggleGroup = GetComponent<ToggleGroup>();
         goBackButton.onClick.AddListener(goBackQuestionBank);
         exitButton.onClick.AddListener(exitGame);
         saveButton.onClick.AddListener(saveQuestion);
@@ -63,7 +62,9 @@ public class AddQuestionBH : MonoBehaviour
         Debug.Log(desc.text);
         Debug.Log("Save question button pressed");
         // Debug.Log("selected " + currentSelection.name);
-        string correct_selection = currentSelection.name; 
+        string correct_selection = currentSelection.name;
+        int x;
+        int.TryParse(correct_selection, out x); 
         Debug.Log("current selection: " + correct_selection);
         string question_description = desc.text;
         string answer_1 = option1.text;
@@ -71,17 +72,17 @@ public class AddQuestionBH : MonoBehaviour
         string answer_3 = option3.text;
         string answer_4 = option4.text;
         string correct_answer; 
-        switch (correct_selection){
-            case "Option1Answer":
+        switch (x){
+            case 0:
                 correct_answer = option1.text;
                 break;
-            case "Option2Answer": 
+            case 1: 
                 correct_answer = option2.text;
                 break;
-            case "Option3Answer":
+            case 2:
                 correct_answer = option3.text;
                 break;
-            case "Option4Answer":
+            case 3:
                 correct_answer = option4.text;
                 break;
             default:
@@ -124,7 +125,7 @@ public class AddQuestionBH : MonoBehaviour
        form.AddField("topic",topic); 
        form.AddField("difficulty",difficulty);
        Debug.Log("here");
-       using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:8080/cz3003/insert_question.php",form)) // sending inputs to be queried, will be done by php
+       using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/cz3003/insert_question.php",form)) // sending inputs to be queried, will be done by php
        {
            yield return www.SendWebRequest();
             if (www.result != UnityWebRequest.Result.Success)
@@ -141,7 +142,8 @@ public class AddQuestionBH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        topicList.GetComponent<Dropdown>().RefreshShownValue();
+        diffList.GetComponent<Dropdown>().RefreshShownValue();
     }
 
        public static class JsonHelper

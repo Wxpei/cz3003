@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 555430739}
   - component: {fileID: 555430740}
   m_Layer: 5
-  m_Name: 'Option2Answer '
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14036,7 +14036,7 @@ GameObject:
   - component: {fileID: 762245623}
   - component: {fileID: 762245624}
   m_Layer: 5
-  m_Name: Option1Answer
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15885,7 +15885,7 @@ GameObject:
   - component: {fileID: 1173859493}
   - component: {fileID: 1173859494}
   m_Layer: 5
-  m_Name: 'Option3Answer '
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15970,7 +15970,7 @@ GameObject:
   - component: {fileID: 1199458457}
   - component: {fileID: 1199458458}
   m_Layer: 5
-  m_Name: Option4Answer
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
