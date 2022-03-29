@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 325555219}
   - component: {fileID: 325555218}
   - component: {fileID: 325555217}
+  - component: {fileID: 325555220}
   m_Layer: 5
   m_Name: Dropdown - Section
   m_TagString: Untagged
@@ -1237,13 +1238,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: Option A
-      m_Image: {fileID: 0}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-    - m_Text: Option C
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1286,6 +1281,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325555215}
   m_CullTransparentMesh: 1
+--- !u!114 &325555220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325555215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096950b069106f24f9ae3be9594ed03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextBox: {fileID: 0}
 --- !u!1 &384036302
 GameObject:
   m_ObjectHideFlags: 0
@@ -16796,6 +16804,7 @@ GameObject:
   - component: {fileID: 1548955185}
   - component: {fileID: 1548955184}
   - component: {fileID: 1548955183}
+  - component: {fileID: 1548955186}
   m_Layer: 5
   m_Name: Dropdown - Difficulty
   m_TagString: Untagged
@@ -16873,13 +16882,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: Option A
-      m_Image: {fileID: 0}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-    - m_Text: Option C
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16922,6 +16925,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548955181}
   m_CullTransparentMesh: 1
+--- !u!114 &1548955186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548955181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7a99171499e9b489071d4b2f4d4a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextBox: {fileID: 0}
 --- !u!1 &1581028312
 GameObject:
   m_ObjectHideFlags: 0
@@ -18677,7 +18693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: 
 --- !u!222 &1952261617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18835,7 +18851,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: 
 --- !u!222 &1965544096
 CanvasRenderer:
   m_ObjectHideFlags: 0
