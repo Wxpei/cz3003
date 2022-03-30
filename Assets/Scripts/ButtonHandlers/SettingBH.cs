@@ -7,14 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class SettingBH : MonoBehaviour
 {
-    public Button saveButton, backButton;
+    public Button backButton;
     public AudioMixer audioMixer;
     public Slider BGMslider;
 
     // Start is called before the first frame update
     void Start()
     {
-        saveButton.onClick.AddListener(Save);
         backButton.onClick.AddListener(Back);
     }
 
@@ -23,15 +22,9 @@ public class SettingBH : MonoBehaviour
         audioMixer.SetFloat("BGM_Volume", volume);
     }
 
-
-    void Save()
-    {
-        SceneManager.LoadScene("Profile");
-    }
-
     void Back()
     {
-        SceneManager.LoadScene("Main Menu (Student)");
+        SceneManager.LoadScene("Main Menu (" + SceneTransfer.accountType + ")");
         //SceneManager.LoadScene("Main Menu (Teacher)");
     }
 

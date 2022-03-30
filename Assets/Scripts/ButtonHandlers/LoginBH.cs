@@ -21,7 +21,13 @@ public class LoginBH : MonoBehaviour
     
     public void loginDetails()
     {
-        Debug.Log("Login selected. Load Login Scene.");
+        //Debug.Log("Login selected. Load Login Scene.");
+
+        // Add check for username validity
+
+        SceneTransfer.username = userInput.text;
+        SceneTransfer.accountType = "Student";
+
         SceneManager.LoadScene("Main Menu (Student)");
     }
 
