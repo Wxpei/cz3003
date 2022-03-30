@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -84,10 +85,7 @@ public class GameManager : MonoBehaviour
         if (!gameEnd && (chestOpened == numberOfChest || playerLifeCounter == 0))
         {
             gameEnd = true;
-            // Game End Methods
-
-
-
+            GameEnd();
 
         } else if (!gameEnd)
         {
@@ -106,6 +104,13 @@ public class GameManager : MonoBehaviour
         // populate questionDatabase
 
 
+    }
+
+    private void GameEnd()
+    {
+        // Upload playerScore, gameTimer, username (SceneTransfer.username) to database
+
+        SceneManager.LoadScene("Leaderboard");
     }
 
     public void FinishQuestion(bool success)

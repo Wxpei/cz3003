@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+
 public class AvatarBH : MonoBehaviour
 {
     public Button avatarTimeButton, avatarLifeButton, exitButton, goBackButton;
