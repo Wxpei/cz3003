@@ -94,6 +94,8 @@ public class AddQuestionBH : MonoBehaviour
         string difficulty = getDiff();
         Debug.Log(topic);
         addQuestion(question_description, answer_1, answer_2, answer_3, answer_4, correct_answer, topic, difficulty);
+        SceneManager.LoadScene("Question - Question Bank (Teacher)");
+
     }
 
     public void goBackQuestionBank(){
