@@ -79,3 +79,12 @@ Assets/Scripts/PHP scripts/register.php.meta
 Assets/Scripts/PHP scripts/testing.php.meta
 
 ProjectSettings/EditorBuildSettings.asset
+
+
+Assets/Terrain Tile Hex Samples/Example Scene/Example Hexes/HexSpriteAtlas.spriteatlas
+
+Assets/Terrain Tile Hex Samples/Example Scene/Example Tiles/SquareTileSpriteAtlas.spriteatlas
+
+Packages/manifest.json
+
+Packages/packages-lock.json
