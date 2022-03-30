@@ -672,6 +672,9 @@ MonoBehaviour:
   diffList: {fileID: 2008948523}
   prefabButton: {fileID: 1272972060}
   ParentPanel: {fileID: 1813395162}
+  loadButton: {fileID: 1272972061}
+  questionlist:
+    question_data: []
 --- !u!4 &177421695
 Transform:
   m_ObjectHideFlags: 0
@@ -684,7 +687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254216661
 GameObject:
@@ -14209,6 +14212,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8745362017539724085, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
   m_PrefabInstance: {fileID: 6751811351516988013}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1272972061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+  m_PrefabInstance: {fileID: 6751811351516988013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272972060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1277904526
 GameObject:
   m_ObjectHideFlags: 0
@@ -14386,7 +14400,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1348865693
+--- !u!1 &1390937390
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14394,8 +14408,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1348865695}
-  - component: {fileID: 1348865694}
+  - component: {fileID: 1390937392}
+  - component: {fileID: 1390937391}
   m_Layer: 0
   m_Name: Background music
   m_TagString: Untagged
@@ -14403,19 +14417,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &1348865694
+--- !u!82 &1390937391
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348865693}
+  m_GameObject: {fileID: 1390937390}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 00379ff33019bab4c9495c70aa3c3ff7, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4ed9477d844bc8e4ba974ff83a79d3f7, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 55977aaed25187d418563bd2df859477, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14423,7 +14437,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 500
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -14499,19 +14513,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1348865695
+--- !u!4 &1390937392
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348865693}
+  m_GameObject: {fileID: 1390937390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1900.6382, y: 308.08362, z: -685.1121}
+  m_LocalPosition: {x: 11.019043, y: -23.747131, z: -685.1121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427584218
 GameObject:
@@ -15158,7 +15172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goBackButton: {fileID: 1482468495}
   exitButton: {fileID: 149347568}
-  questionButton: {fileID: 0}
+  loadButton: {fileID: 0}
 --- !u!4 &1718472406
 Transform:
   m_ObjectHideFlags: 0
@@ -15171,7 +15185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1730418850
 GameObject:
@@ -16321,7 +16335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109234088
 GameObject:
@@ -16755,6 +16769,10 @@ PrefabInstance:
     - target: {fileID: 2724279633941516903, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494838613738532511, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_Text
+      value: Click me to load questions!
       objectReference: {fileID: 0}
     - target: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

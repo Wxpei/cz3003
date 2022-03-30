@@ -253,6 +253,7 @@ public class ButtonHandler : MonoBehaviour
 [Serializable]
 public class questionData
 {
+    public int question_id;
     public string question_description;
     public string answer_1;
     public string answer_2;
