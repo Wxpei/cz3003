@@ -123,12 +123,25 @@ public class QuestionList : MonoBehaviour
     }
 
     void getQuestion(string topic, string diff){
+        clearQuestions();
         coroutine = get_questions(topic,diff);
         StartCoroutine(coroutine);
 
         Debug.Log("get question end");
     }
 
+
+    void clearQuestions(){
+                int temp = 0;
+               foreach (RectTransform child in ParentPanel)
+                { 
+                    if(temp !=0){
+                        Destroy(child.gameObject);
+                    }
+                    temp+=1;
+                     
+                }
+    }
       public IEnumerator get_questions(string topic, string difficulty)
    {
        WWWForm form = new WWWForm();
@@ -172,9 +185,9 @@ public class QuestionList : MonoBehaviour
 			//    Debug.Log("User 1  = " + questionlist.question_data[i].assignment_id);
             //     }
 
+            
                  for(int i = 0; i < tempList.Count; i++)
             {
-                
                 GameObject goButton = (GameObject)Instantiate(prefabButton);
                 goButton.transform.SetParent(ParentPanel, false);
                 goButton.transform.localScale = new Vector3(1, 1, 1);
@@ -184,6 +197,9 @@ public class QuestionList : MonoBehaviour
                 tempButton.GetComponentInChildren<Text>().text = tempList[i];
 
                 tempButton.onClick.AddListener(() => ButtonClicked(tempInt));
+                // Destroy(tempButton.GetComponent<Button>());
+            
+
             }
            
         
@@ -191,6 +207,7 @@ public class QuestionList : MonoBehaviour
            }
        }
    }
+
 
     void Update()
     {
