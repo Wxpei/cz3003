@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class ProfileBH : MonoBehaviour
 {
-    public Button exitButton, goBackButton, changeUsernameButton, changePasswordButton; 
+    public Button exitButton, goBackButton, changeUsernameButton, changePasswordButton;
+
+    public Text username, uname, email;
 
     void Start()
     {
@@ -16,6 +18,13 @@ public class ProfileBH : MonoBehaviour
 
         goBackButton.onClick.AddListener(goBackMainMenuStudent);
         exitButton.onClick.AddListener(exitGame);
+
+        username.text = "Username: " + SceneTransfer.username;
+
+        // Get email and naem from database
+
+        uname.text = "Name: " + "temp name";
+        email.text = "Email: " + "temp@gmail.com";
     }
 
     void exitGame()

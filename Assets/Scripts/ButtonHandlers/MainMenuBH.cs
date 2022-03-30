@@ -27,7 +27,7 @@ public class MainMenuBH : MonoBehaviour
     void singlePlayerMode()
     {
         Debug.Log("Single player selected. Load Login.");
-        SceneManager.LoadScene("World Selection");
+        SceneManager.LoadScene("AvatarSelection");
     }
 
     void multiPlayerMode()

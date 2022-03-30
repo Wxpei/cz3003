@@ -6,20 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class WorldSelectionBH : MonoBehaviour
 {
-    public Button exitButton, mathButton, goBackButton, physicsButton, chemistryButton, biologyButton, historyButton, socialStudiesButton, geographyyButton; 
+    public Button exitButton, mathButton, goBackButton, scienceButton, historyButton, socialStudiesButton, geographyyButton; 
 
     void Start()
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
         mathButton.onClick.AddListener(mathMode);
-        physicsButton.onClick.AddListener(physicsMode); 
-        chemistryButton.onClick.AddListener(chemistryMode);
-        biologyButton.onClick.AddListener(biologyMode);
+        scienceButton.onClick.AddListener(scienceMode); 
         historyButton.onClick.AddListener(historyMode);
         socialStudiesButton.onClick.AddListener(socialStudiesMode);
-        geographyyButton.onClick.AddListener(geographyyMode);
+        geographyyButton.onClick.AddListener(geographyMode);
         
-        goBackButton.onClick.AddListener(goBackMainMenuStudent);
+        goBackButton.onClick.AddListener(goBackAvatarSection);
         exitButton.onClick.AddListener(exitGame);
     }
 
@@ -29,50 +27,53 @@ public class WorldSelectionBH : MonoBehaviour
         Application.Quit();
     }
 
-    void goBackMainMenuStudent()
+    void goBackAvatarSection()
     {
-        SceneManager.LoadScene("Main Menu (Student)");
+        SceneManager.LoadScene("AvatarSelection");
     }
 
     void mathMode()
     {
         Debug.Log("Mathematics World selected. Load Section Scene.");
+
+        SceneTransfer.subject = "math";
+
         SceneManager.LoadScene("Difficulty");
     }
 
-    void physicsMode()
+    void scienceMode()
     {
-        Debug.Log("Physics World selected. Load Section Scene.");
-        SceneManager.LoadScene("Difficulty");
-    }
+        Debug.Log("Science World selected. Load Section Scene.");
 
-    void chemistryMode()
-    {
-        Debug.Log("Chemistry World selected. Load Section Scene.");
-        SceneManager.LoadScene("Difficulty");
-    }
+        SceneTransfer.subject = "science";
 
-    void biologyMode()
-    {
-        Debug.Log("Biology World selected. Load Section Scene.");
         SceneManager.LoadScene("Difficulty");
     }
 
     void historyMode()
     {
         Debug.Log("History World selected. Load Section Scene.");
+
+        SceneTransfer.subject = "history";
+
         SceneManager.LoadScene("Difficulty");
     }
 
     void socialStudiesMode()
     {
         Debug.Log("Social Studies World selected. Load Section Scene.");
+
+        SceneTransfer.subject = "scoialstudies";
+
         SceneManager.LoadScene("Difficulty");
     }
 
-    void geographyyMode()
+    void geographyMode()
     {
         Debug.Log("Geography World selected. Load Section Scene.");
+
+        SceneTransfer.subject = "geography";
+
         SceneManager.LoadScene("Difficulty");
     }
 }

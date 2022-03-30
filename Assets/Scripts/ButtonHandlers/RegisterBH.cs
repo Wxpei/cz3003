@@ -8,6 +8,10 @@ public class RegisterBH : MonoBehaviour
 {
     public Button registerButton, exitButton, backButton;
 
+    public InputField username, uname, email, password;
+
+    public Text output;
+
     void Start()
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
@@ -25,6 +29,10 @@ public class RegisterBH : MonoBehaviour
     void register()
     {
         Debug.Log("Single player selected. Load Login.");
+
+        // Check database for valid details
+
+        goBackToLogin();
     }
 
     void goBackToLogin()
