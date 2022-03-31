@@ -11,13 +11,13 @@ public class TopicBH : MonoBehaviour
     public Button exitButton, goBackButton;
 
     [SerializeField]
-    private GameObject topicTemplate;
+    private GameObject topicButtonTemplate;
 
     public Text subject;
 
     public List<string> Topics;
 
-    private List<GameObject> ranks = new List<GameObject>();
+    private List<GameObject> topicButtons = new List<GameObject>();
 
     public IEnumerator coroutine;
     // Start is called before the first frame update
@@ -36,20 +36,20 @@ public class TopicBH : MonoBehaviour
         Topics.Add("topic4");
         Topics.Add("topic5");
 
-        var position = topicTemplate.transform.position;
+        var position = topicButtonTemplate.transform.position;
         var y = position.y;
         foreach (var topic in Topics)
         {
             Debug.Log(topic);
-            GameObject rank = Instantiate(topicTemplate) as GameObject;
-            rank.SetActive(true);
+            GameObject topicButton = Instantiate(topicButtonTemplate) as GameObject;
+            topicButton.SetActive(true);
 
-            Text indexText = rank.transform.GetChild(0).GetComponent<Text>();
+            Text indexText = topicButton.transform.GetChild(0).GetComponent<Text>();
             indexText.text = topic;
-            rank.transform.SetParent(topicTemplate.transform.parent, false);
-           
-            rank.transform.position = new Vector3(position.x, y, position.z);
-            ranks.Add(rank.gameObject);
+            topicButton.transform.SetParent(topicButtonTemplate.transform.parent, false);
+
+            topicButton.transform.position = new Vector3(position.x, y, position.z);
+            topicButtons.Add(topicButton.gameObject);
             y = y - 250;
         }
 
