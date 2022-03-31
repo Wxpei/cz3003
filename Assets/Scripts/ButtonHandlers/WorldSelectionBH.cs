@@ -38,7 +38,7 @@ public class WorldSelectionBH : MonoBehaviour
 
         SceneTransfer.subject = "math";
 
-        SceneManager.LoadScene("Difficulty");
+        SceneManager.LoadScene("Topic");
     }
 
     void scienceMode()
@@ -47,7 +47,7 @@ public class WorldSelectionBH : MonoBehaviour
 
         SceneTransfer.subject = "science";
 
-        SceneManager.LoadScene("Difficulty");
+        SceneManager.LoadScene("Topic");
     }
 
     void historyMode()
@@ -56,7 +56,7 @@ public class WorldSelectionBH : MonoBehaviour
 
         SceneTransfer.subject = "history";
 
-        SceneManager.LoadScene("Difficulty");
+        SceneManager.LoadScene("Topic");
     }
 
     void socialStudiesMode()
@@ -65,7 +65,7 @@ public class WorldSelectionBH : MonoBehaviour
 
         SceneTransfer.subject = "scoialstudies";
 
-        SceneManager.LoadScene("Difficulty");
+        SceneManager.LoadScene("Topic");
     }
 
     void geographyMode()
@@ -74,6 +74,6 @@ public class WorldSelectionBH : MonoBehaviour
 
         SceneTransfer.subject = "geography";
 
-        SceneManager.LoadScene("Difficulty");
+        SceneManager.LoadScene("Topic");
     }
 }

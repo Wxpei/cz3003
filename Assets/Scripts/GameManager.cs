@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         // Load Data from previous scene here
         string difficulty = SceneTransfer.difficulty;
         string subject = SceneTransfer.subject;
+        string topic = SceneTransfer.topic;
 
         playerLife = 3;
 
@@ -153,8 +154,6 @@ public class GameManager : MonoBehaviour
                     Question qn = new Question(questionText, answerText, answerOption);
                     questionDatabase.Add(qn);
                 }
-
-
             }
         }
 

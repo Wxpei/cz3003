@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class ProfileBH : MonoBehaviour
 {
-    public Button exitButton, goBackButton, changeUsernameButton, changePasswordButton;
+    public Button exitButton, goBackButton, changePasswordButton;
 
     public Text username, uname, email;
 
@@ -16,7 +16,6 @@ public class ProfileBH : MonoBehaviour
     void Start()
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
-        changeUsernameButton.onClick.AddListener(changeUsername);
         changePasswordButton.onClick.AddListener(changePassword);
 
         goBackButton.onClick.AddListener(goBackMainMenuStudent);
@@ -44,14 +43,9 @@ public class ProfileBH : MonoBehaviour
         SceneManager.LoadScene("Main Menu (Student)");
     }
 
-    void changeUsername()
-    {
-        Debug.Log("Mathematics World selected. Load Section Scene.");
-    }
-
     void changePassword()
     {
-        Debug.Log("Physics World selected. Load Section Scene.");
+        Debug.Log("change password selected. Load Section Scene.");
     }
 
     public IEnumerator get_userDetails(string username) // verify login, password is hashed aka send date to database
