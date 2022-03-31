@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
 
         InitialisePlayerHealth(); // setup player health system
         LoadQuestionsFromDatabase(difficulty, subject); // load all questions from database
-        GetPoolOfQuestions(); // will randomly select 5 qn from all questions
     }
 
     // Update is called once per frame
