@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     private float gameTimer = 0;
 
     private bool gameEnd = false;
+
+    public IEnumerator coroutine;
 
     private void Awake()
     {
@@ -101,9 +104,62 @@ public class GameManager : MonoBehaviour
     public void LoadQuestionsFromDatabase(string difficulty, string subject)
     {
         // Add code to load from database
+        coroutine = get_questions(subject, difficulty);
+        StartCoroutine(coroutine);
         // populate questionDatabase
+    }
+
+    public IEnumerator get_questions(string topic, string difficulty)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("topic", topic);
+        form.AddField("difficulty", difficulty);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/fetch_questions_2.php", form)) // sending inputs to be queried, will be done by php
+        {
+            yield return www.SendWebRequest();
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                questionDatabase.Clear();
+                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+                string jsonArray = www.downloadHandler.text;
+                questionData_list questionlist = JsonUtility.FromJson<questionData_list>("{\"question_data\": " + jsonArray + "}");
+                //As there maybe multiple outputs, we have to store the results as a list
+                // Select the first line from the collection, and print its dialogue:
+
+               
+                for (int i = 0; i < questionlist.question_data.Length; i++)
+                {
+                    string questionText = questionlist.question_data[i].question_description;
+                    string[] answerText = new string[4];
+                    answerText[0] = questionlist.question_data[i].answer_1;
+                    answerText[1] = questionlist.question_data[i].answer_2;
+                    answerText[2] = questionlist.question_data[i].answer_3;
+                    answerText[3] = questionlist.question_data[i].answer_4;
+                    int answerOption = 0;
+
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (answerText[j] == questionlist.question_data[i].correct_answer)
+                        {
+                            Debug.Log(questionlist.question_data[i].correct_answer);
+                            Debug.Log(questionlist.question_data[i].correct_answer);
+                            answerOption = j + 1;
+                            break;
+                        }
+                    }
+                    Question qn = new Question(questionText, answerText, answerOption);
+                    questionDatabase.Add(qn);
+                }
 
 
+            }
+        }
+
+        GetPoolOfQuestions(); // will randomly select 5 qn from all questions
     }
 
     private void GameEnd()
