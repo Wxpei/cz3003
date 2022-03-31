@@ -266,10 +266,17 @@ public class questionData
 }
 
 [Serializable]
+public class userData
+{
+    public string Name;
+    public string Email;
+
+}
+
+[Serializable]
 public class questionData_list {
     public questionData[] question_data;
 }
-
 
 [Serializable]
 public class leaderboardData
