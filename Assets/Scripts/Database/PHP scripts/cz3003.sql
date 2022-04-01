@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2022 at 05:46 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Apr 01, 2022 at 08:43 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,8 +66,8 @@ INSERT INTO `leaderboard` (`username`, `score`, `topic`, `difficulty`) VALUES
 
 CREATE TABLE `leaderboard_custom` (
   `username` varchar(255) NOT NULL,
-  `score` varchar(255) NOT NULL,
-  `time` varchar(255) NOT NULL,
+  `score` int(255) NOT NULL,
+  `time` float NOT NULL,
   `assignment_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -76,8 +76,12 @@ CREATE TABLE `leaderboard_custom` (
 --
 
 INSERT INTO `leaderboard_custom` (`username`, `score`, `time`, `assignment_id`) VALUES
-('ben', '5', '1:21', '123'),
-('john', '5', '2:21', '123');
+('ben', 5, 49, '123'),
+('john', 5, 35, '123'),
+('test', 5, 42.2, '1'),
+('test', 5, 42.2, '1'),
+('test', 5, 42.2, '1'),
+('adminStudent', 5, 37.0871, '0');
 
 -- --------------------------------------------------------
 
@@ -130,7 +134,7 @@ CREATE TABLE `question_bank` (
 --
 
 INSERT INTO `question_bank` (`question_id`, `question_description`, `answer_1`, `answer_2`, `answer_3`, `answer_4`, `correct_answer`, `topic`, `difficulty`, `assignment_id`, `total_attempts`, `correct_attempts`) VALUES
-(1, 'sin(sec-1 x + cosec-1x) =', '1', '-1', 'π/2', 'π/3', '1', 'math', 'normal', '0', 20, 14),
+(1, 'sin(sec-1 x + cosec-1x) =', '1', '-1', 'π/2', 'π/3', '1', 'math', 'normal', '0', 21, 15),
 (2, 'The principle value of sin-1 (√3/2) is', '2π/3', 'π/6', 'π/4', 'π/3', 'π/3', 'math', 'normal', '0', 17, 11),
 (3, 'Simplified form of cos-1 (4x3 – 3x)', '3 sin-1x', '3 cos-1x', 'π – 3 sin-1x', 'none of the above', '3 cos-1x', 'math', 'hard', '0', 0, 0),
 (4, 'If y = sec-1 x then', '0 ≤ y ≤ π', '0 ≤ y ≤ π/2', '–π/2 < y < π/2', 'none of the above', 'none of the above', 'math', 'hard', '0', 0, 0),
@@ -139,11 +143,11 @@ INSERT INTO `question_bank` (`question_id`, `question_description`, `answer_1`, 
 (7, 'The value of cos - 1 (1/2) + 2sin - 1 (1/2) is equal to', 'π/4', 'π/6', '2π/3', '5π/6', 'π/6', 'math', 'hard', '0', 0, 0),
 (8, 'Principal value of tan -1 ( -1) is', 'π/4', '-π/2', '5π/4', '-π/4', '-π/4', 'math', 'hard', '0', 0, 0),
 (9, 'Principal value of sin - 1 (1/√2 )', 'π/4', '3π/4', '5π/4', 'none of the above', 'π/4', 'math', 'hard', '0', 0, 0),
-(10, 'The nucleus of an atom consists of', 'electrons and neutrons', 'electrons and protons', 'protons and neutrons', 'All of the above', 'protons and neutrons', 'science', 'easy', '0', 0, 0),
-(11, 'The nucleus of a hydrogen atom consists of', '1 proton only', '1 proton + 2 neutron', '1 neutron only', '1 electron only', '1 proton only', 'science', 'easy', '0', 0, 0),
-(12, 'Pa(Pascal) is the unit for', 'thrust', 'pressure', 'frequency', 'conductivity', 'pressure', 'science', 'easy', '0', 0, 0),
-(13, 'Metals are good conductors of electricity because', 'they contain free electrons', 'the atoms are lightly packed', 'they have high melting point', 'All of the above', 'they contain free electrons', 'science', 'easy', '0', 0, 0),
-(14, 'The liquid metal is', 'Bismuth', 'Magnesium', 'Mercury', 'Sodium', 'Mercury', 'science', 'easy', '0', 0, 0);
+(10, 'The nucleus of an atom consists of', 'electrons and neutrons', 'electrons and protons', 'protons and neutrons', 'All of the above', 'protons and neutrons', 'science', 'easy', '0', 4, 4),
+(11, 'The nucleus of a hydrogen atom consists of', '1 proton only', '1 proton + 2 neutron', '1 neutron only', '1 electron only', '1 proton only', 'science', 'easy', '0', 4, 2),
+(12, 'Pa(Pascal) is the unit for', 'thrust', 'pressure', 'frequency', 'conductivity', 'pressure', 'science', 'easy', '0', 4, 4),
+(13, 'Metals are good conductors of electricity because', 'they contain free electrons', 'the atoms are lightly packed', 'they have high melting point', 'All of the above', 'they contain free electrons', 'science', 'easy', '0', 4, 3),
+(14, 'The liquid metal is', 'Bismuth', 'Magnesium', 'Mercury', 'Sodium', 'Mercury', 'science', 'easy', '0', 4, 4);
 
 --
 -- Indexes for dumped tables
