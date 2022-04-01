@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         // Load Data from previous scene here
         string difficulty = SceneTransfer.difficulty;
         string subject = SceneTransfer.subject;
-        int roomId = SceneTransfer.roomId;
+        int assignment_id = SceneTransfer.assignment_id;
 
         playerLife = 3;
 
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "0"; // Initialise score to 0
 
         InitialisePlayerHealth(); // setup player health system
-        LoadQuestionsFromDatabase(difficulty, subject, roomId); // load all questions from database
+        LoadQuestionsFromDatabase(difficulty, subject, assignment_id); // load all questions from database
     }
 
     // Update is called once per frame
@@ -100,21 +100,20 @@ public class GameManager : MonoBehaviour
     {
         questionPanel.LoadQuestion(currentQuestion[chestOpened], questionTimer, chestOpened + 1);
     }
-
-    public void LoadQuestionsFromDatabase(string difficulty, string subject, int roomId)
+    public void LoadQuestionsFromDatabase(string difficulty, string subject, int assignment_id)
     {
         // Add code to load from database
-        coroutine = get_questions(subject, difficulty, roomId);
+        coroutine = get_questions(subject, difficulty, assignment_id);
         StartCoroutine(coroutine);
         // populate questionDatabase
     }
 
-    public IEnumerator get_questions(string topic, string difficulty, int roomId)
+    public IEnumerator get_questions(string topic, string difficulty, int assignment_id)
     {
         WWWForm form = new WWWForm();
         form.AddField("topic", topic);
         form.AddField("difficulty", difficulty);
-        form.AddField("assignment_id", roomId);
+        form.AddField("assignment_id", assignment_id);
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/fetch_questions_2.php", form)) // sending inputs to be queried, will be done by php
         {
             yield return www.SendWebRequest();
