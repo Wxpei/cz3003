@@ -63,7 +63,7 @@ public class WorldSelectionBH : MonoBehaviour
     {
         Debug.Log("Social Studies World selected. Load Section Scene.");
 
-        SceneTransfer.subject = "scoialstudies";
+        SceneTransfer.subject = "social studies";
 
         SceneManager.LoadScene("Section");
     }
