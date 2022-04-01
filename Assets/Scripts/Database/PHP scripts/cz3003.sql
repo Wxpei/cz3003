@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2022 at 01:44 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Apr 01, 2022 at 05:00 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,6 +57,27 @@ INSERT INTO `leaderboard` (`username`, `score`, `topic`, `difficulty`) VALUES
 ('dennis', 2, 'science', 'normal'),
 ('ryan', 4, 'science', 'normal'),
 ('kelly', 5, 'science', 'normal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leaderboard_custom`
+--
+
+CREATE TABLE `leaderboard_custom` (
+  `username` varchar(255) NOT NULL,
+  `score` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `assignment_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `leaderboard_custom`
+--
+
+INSERT INTO `leaderboard_custom` (`username`, `score`, `time`, `assignment_id`) VALUES
+('ben', '5', '1:21', '123'),
+('john', '5', '2:21', '123');
 
 -- --------------------------------------------------------
 
