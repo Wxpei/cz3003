@@ -209,10 +209,38 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public IEnumerator insert_leaderboard(string username, int score, string topic, string difficulty)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("username", username);
+        form.AddField("score", score);
+        form.AddField("topic", topic);
+        form.AddField("difficulty", difficulty);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/cz3003/insert_leaderboard.php", form)) // sending inputs to be queried, will be done by php
+        {
+            yield return www.SendWebRequest();
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+            }
+        }
+    }
+
     private void GameEnd()
     {
         // Upload playerScore, gameTimer, username (SceneTransfer.username) to database
-        coroutine = insert_leaderboard_custom(SceneTransfer.username, playerScore, gameTimer, SceneTransfer.assignment_id);
+        if (SceneTransfer.assignment_id == 0)
+        {
+            coroutine = insert_leaderboard(SceneTransfer.username, playerScore, SceneTransfer.subject, SceneTransfer.difficulty);
+        }
+        else
+        {
+            coroutine = insert_leaderboard_custom(SceneTransfer.username, playerScore, gameTimer, SceneTransfer.assignment_id);
+        }
         StartCoroutine(coroutine);
         SceneManager.LoadScene("Leaderboard");
     }
