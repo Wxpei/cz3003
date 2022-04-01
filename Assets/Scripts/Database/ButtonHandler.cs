@@ -285,6 +285,7 @@ public class leaderboardData
     public string score;
 	public string topic;
 	public string difficulty;
+    public string time;
 }
 
 [Serializable]
