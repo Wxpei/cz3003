@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
                
                 for (int i = 0; i < questionlist.question_data.Length; i++)
                 {
+                    int questionID = questionlist.question_data[i].question_id;
                     string questionText = questionlist.question_data[i].question_description;
                     string[] answerText = new string[4];
                     answerText[0] = questionlist.question_data[i].answer_1;
@@ -151,7 +152,7 @@ public class GameManager : MonoBehaviour
                             break;
                         }
                     }
-                    Question qn = new Question(questionText, answerText, answerOption);
+                    Question qn = new Question(questionText, answerText, answerOption, questionID);
                     questionDatabase.Add(qn);
                 }
 
@@ -162,6 +163,28 @@ public class GameManager : MonoBehaviour
         GetPoolOfQuestions(); // will randomly select 5 qn from all questions
     }
 
+    public IEnumerator update_statistics(int question_id, int correct_attempt)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("question_id", question_id);
+        form.AddField("correct_attempt", correct_attempt);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/cz3003/update_question_statistics.php", form)) // sending inputs to be queried, will be done by php
+        {
+            yield return www.SendWebRequest();
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+                string jsonArray = www.downloadHandler.text;
+
+            }
+        }
+
+    }
+
     private void GameEnd()
     {
         // Upload playerScore, gameTimer, username (SceneTransfer.username) to database
@@ -169,10 +192,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Leaderboard");
     }
 
-    public void FinishQuestion(bool success)
+    public void FinishQuestion(int questionID, bool success)
     {
         chestOpened++;
-
+        int correct_attempt = 0; // 0 - incorrect, 1 - correct
+    
         if (!success)
         {
             // Lose life
@@ -183,7 +207,11 @@ public class GameManager : MonoBehaviour
         {
             playerScore += questionScore;
             scoreText.text = playerScore.ToString();
+            correct_attempt = 1;
         }
+        coroutine = update_statistics(questionID, correct_attempt);
+        StartCoroutine(coroutine);
+
     }
 
     private void InitialisePlayerHealth()
@@ -205,5 +233,7 @@ public class GameManager : MonoBehaviour
             copy.RemoveAt(qnSelected);
         }
     }
+
+    
 }
 
