@@ -8,6 +8,7 @@ public class QuestionPanel : MonoBehaviour
     public Text questionNumberText;
     public Text questionText;
     public List<Text> answerText;
+    public int questionID;
 
     public Text timerText;
 
@@ -60,6 +61,7 @@ public class QuestionPanel : MonoBehaviour
         currentQuestion = question;
         questionNumberText.text = "Question\n" + questionNo.ToString();
         questionText.text = currentQuestion.questionText;
+        questionID = currentQuestion.questionID;
 
         for (int i = 0; i < currentQuestion.answerText.Length; i++)
         {
@@ -101,6 +103,6 @@ public class QuestionPanel : MonoBehaviour
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
 
-        GameManager.Instance.FinishQuestion(success);
+        GameManager.Instance.FinishQuestion(questionID, success);
     }
 }

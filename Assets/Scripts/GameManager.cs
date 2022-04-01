@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         // Load Data from previous scene here
         string difficulty = SceneTransfer.difficulty;
         string subject = SceneTransfer.subject;
-        int roomId = SceneTransfer.roomId;
+        int assignment_id = SceneTransfer.assignment_id;
 
         playerLife = 3;
 
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "0"; // Initialise score to 0
 
         InitialisePlayerHealth(); // setup player health system
-        LoadQuestionsFromDatabase(difficulty, subject, roomId); // load all questions from database
+        LoadQuestionsFromDatabase(difficulty, subject, assignment_id); // load all questions from database
     }
 
     // Update is called once per frame
@@ -100,21 +100,20 @@ public class GameManager : MonoBehaviour
     {
         questionPanel.LoadQuestion(currentQuestion[chestOpened], questionTimer, chestOpened + 1);
     }
-
-    public void LoadQuestionsFromDatabase(string difficulty, string subject, int roomId)
+    public void LoadQuestionsFromDatabase(string difficulty, string subject, int assignment_id)
     {
         // Add code to load from database
-        coroutine = get_questions(subject, difficulty, roomId);
+        coroutine = get_questions(subject, difficulty, assignment_id);
         StartCoroutine(coroutine);
         // populate questionDatabase
     }
 
-    public IEnumerator get_questions(string topic, string difficulty, int roomId)
+    public IEnumerator get_questions(string topic, string difficulty, int assignment_id)
     {
         WWWForm form = new WWWForm();
         form.AddField("topic", topic);
         form.AddField("difficulty", difficulty);
-        form.AddField("assignment_id", roomId);
+        form.AddField("assignment_id", assignment_id);
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/fetch_questions_2.php", form)) // sending inputs to be queried, will be done by php
         {
             yield return www.SendWebRequest();
@@ -134,6 +133,7 @@ public class GameManager : MonoBehaviour
                
                 for (int i = 0; i < questionlist.question_data.Length; i++)
                 {
+                    int questionID = questionlist.question_data[i].question_id;
                     string questionText = questionlist.question_data[i].question_description;
                     string[] answerText = new string[4];
                     answerText[0] = questionlist.question_data[i].answer_1;
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
                             break;
                         }
                     }
-                    Question qn = new Question(questionText, answerText, answerOption);
+                    Question qn = new Question(questionText, answerText, answerOption, questionID);
                     questionDatabase.Add(qn);
                 }
 
@@ -163,17 +163,65 @@ public class GameManager : MonoBehaviour
         GetPoolOfQuestions(); // will randomly select 5 qn from all questions
     }
 
+    public IEnumerator update_statistics(int question_id, int correct_attempt)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("question_id", question_id);
+        form.AddField("correct_attempt", correct_attempt);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/cz3003/update_question_statistics.php", form)) // sending inputs to be queried, will be done by php
+        {
+            yield return www.SendWebRequest();
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+                string jsonArray = www.downloadHandler.text;
+
+            }
+        }
+
+    }
+
+    public IEnumerator insert_leaderboard_custom(string username, int score, float time, int assignment_id)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("username", username);
+        form.AddField("score", score);
+        form.AddField("time", time.ToString());
+        form.AddField("assignment_id", assignment_id);
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/cz3003/insert_into_leaderboard_custom.php", form)) // sending inputs to be queried, will be done by php
+        {
+            yield return www.SendWebRequest();
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+                string jsonArray = www.downloadHandler.text;
+
+            }
+        }
+
+    }
+
     private void GameEnd()
     {
         // Upload playerScore, gameTimer, username (SceneTransfer.username) to database
-
+        coroutine = insert_leaderboard_custom(SceneTransfer.username, playerScore, gameTimer, SceneTransfer.assignment_id);
+        StartCoroutine(coroutine);
         SceneManager.LoadScene("Leaderboard");
     }
 
-    public void FinishQuestion(bool success)
+    public void FinishQuestion(int questionID, bool success)
     {
         chestOpened++;
-
+        int correct_attempt = 0; // 0 - incorrect, 1 - correct
+    
         if (!success)
         {
             // Lose life
@@ -184,7 +232,11 @@ public class GameManager : MonoBehaviour
         {
             playerScore += questionScore;
             scoreText.text = playerScore.ToString();
+            correct_attempt = 1;
         }
+        coroutine = update_statistics(questionID, correct_attempt);
+        StartCoroutine(coroutine);
+
     }
 
     private void InitialisePlayerHealth()
@@ -206,5 +258,7 @@ public class GameManager : MonoBehaviour
             copy.RemoveAt(qnSelected);
         }
     }
+
+    
 }
 

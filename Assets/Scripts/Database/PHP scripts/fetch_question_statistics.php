@@ -5,12 +5,9 @@
 	$db_name = "cz3003"; // Database name 
 
 	//variables submitted by user
-	$topic = $_POST["topic"];
-	$difficulty = $_POST["difficulty"];
-	$assignment_id = $_POST["assignment_id"];
-	// $topic = "math";
-	// $difficulty = "normal";
-	// $assignment_id = 0;
+
+	$question_id = $_POST["question_id"];
+	//$question_id = 1;
 	
 	$conn = new mysqli($host,$db_username,$db_password,$db_name);
 	if($conn->connect_error)
@@ -18,7 +15,9 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "Select * FROM question_bank where topic = '$topic' AND difficulty ='$difficulty' AND assignment_id ='$assignment_id'" ;  
+	$sql = "SELECT correct_attempts, total_attempts, ROUND(correct_attempts * 100.0 / total_attempts, 1) AS Percent 
+			FROM question_bank
+            WHERE question_id = '$question_id'";  
 	$result = $conn ->query($sql);
 
 	if($result->num_rows > 0)

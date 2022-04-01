@@ -16,7 +16,7 @@ public class DifficultyBH : MonoBehaviour
         normalButton.onClick.AddListener(normalMode);
         hardButton.onClick.AddListener(hardMode);
 
-        goBackButton.onClick.AddListener(goBackWorldSelect);
+        goBackButton.onClick.AddListener(goBackSectionSelection);
         exitButton.onClick.AddListener(exitGame);
 
     }
@@ -27,9 +27,9 @@ public class DifficultyBH : MonoBehaviour
         Application.Quit();
     }
 
-    void goBackWorldSelect()
+    void goBackSectionSelection()
     {
-        SceneManager.LoadScene("World Selection");
+        SceneManager.LoadScene("Section");
     }
     void easyMode()
     {
