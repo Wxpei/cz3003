@@ -32,8 +32,6 @@ public class LeaderboardBH : MonoBehaviour
         goBackButton.onClick.AddListener(goBackMainMenu);
         exitButton.onClick.AddListener(exitGame);
 
-        SceneTransfer.assignment_id = 0;
-
         if (SceneTransfer.assignment_id == 0)
         {
             normalLeaderboard.enabled = true;
