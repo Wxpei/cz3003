@@ -17,6 +17,8 @@ public class MainMenuTeacherBH : MonoBehaviour
         settingsButton.onClick.AddListener(settings);
         questionBankButton.onClick.AddListener(questionBank);
         statisticsButton.onClick.AddListener(statistics);
+
+        SceneTransfer.accountType = "Teacher";
     }
 
     void exitGame()
@@ -28,7 +30,7 @@ public class MainMenuTeacherBH : MonoBehaviour
     void singlePlayerMode()
     {
         Debug.Log("Single player selected. Load Single player.");
-        SceneManager.LoadScene("World Selection");
+        SceneManager.LoadScene("AvatarSelection");
     }
 
     void multiPlayerMode()

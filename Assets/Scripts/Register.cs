@@ -29,7 +29,7 @@ public class Register : MonoBehaviour
     void goBack()
     {
         Debug.Log("Back");
-        SceneManager.LoadScene("Back to Login");      
+        SceneManager.LoadScene("Login");      
     }
 
     void Register_()
