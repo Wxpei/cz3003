@@ -14467,13 +14467,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4fdc6e8b75cc74eb9709ea18cc69a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Back: {fileID: 0}
-  registerButton: {fileID: 0}
-  exitButton: {fileID: 0}
-  Name: {fileID: 0}
-  Username: {fileID: 0}
-  Email: {fileID: 0}
-  Password: {fileID: 0}
+  Back: {fileID: 125026378}
+  registerButton: {fileID: 1660634281}
+  exitButton: {fileID: 28390436}
+  Name: {fileID: 2094077643}
+  Username: {fileID: 1355743590}
+  Email: {fileID: 822996266}
+  Password: {fileID: 507412098}
 --- !u!1 &1670920567
 GameObject:
   m_ObjectHideFlags: 0

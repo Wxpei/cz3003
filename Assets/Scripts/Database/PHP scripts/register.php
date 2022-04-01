@@ -10,10 +10,10 @@
 	$password = $_POST["password"];
 	$name = $_POST["name"];
 	$email = $_POST["email"];
-	// $username = "john555";
-	// $password = "123";
-	// $name = "test";
-	// $email = "test";
+	//$username = "john555";
+	//$password = "123";
+	//$name = "test";
+	//$email = "test";
 
 	$conn = new mysqli($host,$db_username,$db_password,$db_name);
 	if($conn->connect_error)
@@ -29,7 +29,6 @@
 	
 	if (mysqli_num_rows($result)==0)
 	{
-		echo "Does not exist";
 		$sql = " INSERT INTO `login` (`username`, `password`, `isTeacher`, `Name`, `Email`) VALUES ('$username', '$password', '0', '$name', '$email')";
 		$ver = mysqli_query($conn, $sql);
 		if($ver)
