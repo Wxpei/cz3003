@@ -19,8 +19,6 @@ public class CustomWorldBH : MonoBehaviour
         exitButton.onClick.AddListener(exitGame);
 
         // Set the assignment_id for the GameManager to retreive questions | Default is 0
-        int.TryParse(room_id.text, out int assign_id);
-        SceneTransfer.assignment_id = assign_id;
     }
     void exitGame()
     {
@@ -40,6 +38,8 @@ public class CustomWorldBH : MonoBehaviour
     void joinWorld()
     {
         // Add in code to check if the room_id/assignment_id is found in the question bank table
+        int.TryParse(room_id.text, out int assign_id);
+        SceneTransfer.assignment_id = assign_id;
         SceneManager.LoadScene("SingleGame");
     }
 }
