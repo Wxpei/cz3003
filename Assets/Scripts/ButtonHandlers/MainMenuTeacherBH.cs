@@ -36,6 +36,7 @@ public class MainMenuTeacherBH : MonoBehaviour
     void multiPlayerMode()
     {
         Debug.Log("Multi player selected. Load Multi player.");
+        SceneManager.LoadScene("MultiplayerJoinWorld");
     }
 
     void settings()

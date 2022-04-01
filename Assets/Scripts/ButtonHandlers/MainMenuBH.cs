@@ -33,6 +33,7 @@ public class MainMenuBH : MonoBehaviour
     void multiPlayerMode()
     {
         Debug.Log("Multi player selected. Load Login.");
+        SceneManager.LoadScene("MultiplayerJoinWorld");
     }
 
     void editProfile()
