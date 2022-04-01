@@ -7,6 +7,7 @@
 	//variables submitted by user
 	$topic = $_POST["topic"];
 	$difficulty = $_POST["difficulty"];
+	$assignment_id = $_POST["assignment_id"];
 	//$topic = "maths";
 	//$difficulty = "easy";
 	
@@ -16,7 +17,7 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "Select `question_description`,`answer_1`,`answer_2`,`answer_3`,`answer_4`,`correct_answer` FROM question_bank where topic = '$topic' AND difficulty ='$difficulty' " ;  
+	$sql = "Select `question_id`, `question_description`,`answer_1`,`answer_2`,`answer_3`,`answer_4`,`correct_answer` FROM question_bank where topic = '$topic' AND difficulty ='$difficulty' AND `assignment_id` = '$assignment_id'" ;  
 	$result = $conn ->query($sql);
 
 	if($result->num_rows > 0)
