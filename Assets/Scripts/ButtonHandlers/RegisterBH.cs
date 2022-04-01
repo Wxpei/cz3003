@@ -10,6 +10,7 @@ using System;
 public class RegisterBH : MonoBehaviour
 {
     public Button registerButton, exitButton, backButton;
+    public GameObject textDisplay;
 
     public InputField username, uname, email, password;
 
@@ -42,12 +43,17 @@ public class RegisterBH : MonoBehaviour
         string str_pw = password.text;
         coroutine = register_student(str_username, str_pw, str_uname, str_email);
         StartCoroutine(coroutine);
-        goBackToLogin();
     }
-
-     public IEnumerator register_student(string username, string password, string name, string email)
+ public IEnumerator register_student(string username, string password, string name, string email)
     {
        WWWForm form = new WWWForm();
+       if(username=="" || password=="" || name=="" || email==""  )
+       {
+           Debug.Log("Missing Fields");
+            textDisplay.GetComponent<Text>().text = "Missing fields";
+
+           yield break;
+       }
        form.AddField("username",username); 
        form.AddField("password",password);
        form.AddField("name",name); 
@@ -62,6 +68,17 @@ public class RegisterBH : MonoBehaviour
            else
            {
                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+               string result = www.downloadHandler.text;
+               Debug.Log(result);
+               if(result.Equals("exist"))
+               {
+                   Debug.Log("Error");
+                    textDisplay.GetComponent<Text>().text = "There is an existing user, please use another username.";
+
+               }
+                else {
+                    goBackToLogin();
+                }
            }
        }
     }
