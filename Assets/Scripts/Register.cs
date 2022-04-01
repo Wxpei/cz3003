@@ -68,6 +68,12 @@ public class Register : MonoBehaviour
            else
            {
                Debug.Log(www.downloadHandler.text); // The json string returned by the php file
+               string result = www.downloadHandler.text;
+               Debug.Log(result);
+               if(result.Equals("exist"))
+               {
+                   Debug.Log("Error");
+               }
            }
        }
     }
