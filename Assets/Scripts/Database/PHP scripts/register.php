@@ -10,11 +10,7 @@
 	$password = $_POST["password"];
 	$name = $_POST["name"];
 	$email = $_POST["email"];
-	//$username = "john555";
-	//$password = "123";
-	//$name = "test";
-	//$email = "test";
-
+	$password = password_hash($password, PASSWORD_BCRYPT);
 	$conn = new mysqli($host,$db_username,$db_password,$db_name);
 	if($conn->connect_error)
 	{
