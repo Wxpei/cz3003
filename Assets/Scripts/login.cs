@@ -16,6 +16,7 @@ public class login : MonoBehaviour
     public InputField Password, Username; 
     // Require coroutine to call IEnumerator functions
     public IEnumerator coroutine; 
+    public GameObject textDisplay;
     
 
     void Start()
@@ -65,23 +66,45 @@ public class login : MonoBehaviour
            {
                Debug.Log(www.downloadHandler.text);  // 0 = login fail | 1 = student | 2 = admin
                string result = www.downloadHandler.text;
-               Debug.Log(result);
-               if(result.Equals("0"))
-               {
-                  Debug.Log("fail"); 
-                  SceneManager.LoadScene("Login");
-               }
-               else if(result.Equals("2"))
-               {
-                   Debug.Log("Success");
-                   SceneManager.LoadScene("Main Menu (Student)");
-               }
-               else if(result.Equals("1"))
-               {
-                Debug.Log("Student login");
-                SceneManager.LoadScene("Main Menu (Student)");
-               }
+
+               switch (result){
+                case "1":
+                    Debug.Log("Student login");
+                    SceneManager.LoadScene("Main Menu (Student)");
+                    break;
+                case "2":
+                    Debug.Log("Teacher login");
+                    SceneManager.LoadScene("Main Menu (Teacher)");
+                    break; 
+                default:
+                    Debug.Log("Login fail");
+                    textDisplay.GetComponent<Text>().text = "Invalid username or password, please try again.";
+                    break;
+            }
            }
+        //        Debug.Log(result);
+        //        if(result.Equals("0"))
+        //        {
+        //           Debug.Log("fail"); 
+        //         //   SceneManager.LoadScene("Login");
+        //         textDisplay.GetComponent<Text>().text = "Invalid username or password, please try again.";
+        //        }
+        //        else if(result.Equals("2"))
+        //        {
+        //            Debug.Log("Success");
+        //            SceneManager.LoadScene("Main Menu (Teacher)");
+        //        }
+        //        else if(result.Equals("1"))
+        //        {
+        //         Debug.Log("Student login");
+        //         SceneManager.LoadScene("Main Menu (Student)");
+        //        }
+        //        else{
+        //             Debug.Log("fail"); 
+        //         //   SceneManager.LoadScene("Login");
+        //         textDisplay.GetComponent<Text>().text = "Invalid username or password, please try again.";
+        //        }
+        //    }
        }
    }
     // Register Student
