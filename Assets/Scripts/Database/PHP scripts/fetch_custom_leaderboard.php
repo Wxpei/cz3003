@@ -5,12 +5,10 @@
 	$db_name = "cz3003"; // Database name 
 
 	//variables submitted by user
-	$topic = $_POST["topic"];
-	$difficulty = $_POST["difficulty"];
 	$assignment_id = $_POST["assignment_id"];
-	// $topic = "math";
-	// $difficulty = "normal";
-	// $assignment_id = 0;
+	//$difficulty = $_POST["difficulty"];
+	//$topic = "maths";
+	//$difficulty = "easy";
 	
 	$conn = new mysqli($host,$db_username,$db_password,$db_name);
 	if($conn->connect_error)
@@ -18,7 +16,7 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "Select * FROM question_bank where topic = '$topic' AND difficulty ='$difficulty' AND assignment_id ='$assignment_id'" ;  
+	$sql = "SELECT * FROM leaderboard_custom WHERE assignment_id = '$assignment_id' ORDER BY score DESC" ;  
 	$result = $conn ->query($sql);
 
 	if($result->num_rows > 0)

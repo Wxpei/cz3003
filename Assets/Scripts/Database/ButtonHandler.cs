@@ -266,10 +266,17 @@ public class questionData
 }
 
 [Serializable]
+public class userData
+{
+    public string Name;
+    public string Email;
+
+}
+
+[Serializable]
 public class questionData_list {
     public questionData[] question_data;
 }
-
 
 [Serializable]
 public class leaderboardData
@@ -278,6 +285,7 @@ public class leaderboardData
     public string score;
 	public string topic;
 	public string difficulty;
+    public string time;
 }
 
 [Serializable]
