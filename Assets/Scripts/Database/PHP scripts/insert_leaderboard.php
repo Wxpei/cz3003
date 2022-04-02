@@ -21,9 +21,20 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "INSERT INTO leaderboard 
-            VALUES ('$username', '$score', '$topic', '$difficulty')";  
+	$sql = "select * from leaderboard WHERE username ='$username'";
 	$result = $conn ->query($sql);
+	
+	if (mysqli_num_rows($result)== 0)
+	{
+		$sql = "INSERT INTO leaderboard VALUES ('$username', '$score', '$topic', '$difficulty')"; 
+		$result = $conn ->query($sql);
+	}
+	else
+	{
+		$sql = "UPDATE leaderboard SET score = '$score' WHERE username = '$username' AND topic = '$topic' AND difficulty = '$difficulty'";
+		$result = $conn ->query($sql);
+	}
+	
 	$affected = $conn -> affected_rows;
     echo $affected;
     if($affected == 1){
