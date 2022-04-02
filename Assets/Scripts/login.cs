@@ -32,6 +32,7 @@ public class login : MonoBehaviour
         Debug.Log("Login selected. Load Login Scene.");
 
         // Format to call the functions
+        SceneTransfer.username = Username.text;
         StartCoroutine(login_user(Username.text, Password.text));
         
     }
