@@ -21,9 +21,6 @@ public class ProfileBH : MonoBehaviour
         goBackButton.onClick.AddListener(goBackMainMenuStudent);
         exitButton.onClick.AddListener(exitGame);
 
-
-        SceneTransfer.username = "test1";
-
         username.text = "Username: " + SceneTransfer.username;
 
         // Get email and naem from database
@@ -71,7 +68,6 @@ public class ProfileBH : MonoBehaviour
 
                 uname.text = "Name: " + userdetails.Name;
                 email.text = "Email: " + userdetails.Email;
-
             }
         }
     }
