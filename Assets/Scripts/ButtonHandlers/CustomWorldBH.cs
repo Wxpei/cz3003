@@ -40,6 +40,13 @@ public class CustomWorldBH : MonoBehaviour
         // Add in code to check if the room_id/assignment_id is found in the question bank table
         int.TryParse(room_id.text, out int assign_id);
         SceneTransfer.assignment_id = assign_id;
-        SceneManager.LoadScene("SingleGame");
+        LoadSingleGame();
+    }
+
+    void LoadSingleGame()
+    {
+        int random = Random.Range(1, 4);
+
+        SceneManager.LoadScene("SingleGame" + random);
     }
 }

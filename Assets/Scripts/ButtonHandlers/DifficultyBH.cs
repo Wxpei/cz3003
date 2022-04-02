@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
 
 public class DifficultyBH : MonoBehaviour
 {
@@ -35,20 +34,28 @@ public class DifficultyBH : MonoBehaviour
     {
         SceneTransfer.difficulty = "easy";
 
-        SceneManager.LoadScene("SingleGame");
+        LoadSingleGame();
     }
 
     void normalMode()
     {
         SceneTransfer.difficulty = "normal";
 
-        SceneManager.LoadScene("SingleGame");
+        LoadSingleGame();
     }
 
     void hardMode()
     {
         SceneTransfer.difficulty = "hard";
 
-        SceneManager.LoadScene("SingleGame");
+        LoadSingleGame();
+    }
+
+    void LoadSingleGame()
+    {
+        int random = Random.Range(1, 4);
+        SceneTransfer.assignment_id = 0;
+
+        SceneManager.LoadScene("SingleGame" + random);
     }
 }
