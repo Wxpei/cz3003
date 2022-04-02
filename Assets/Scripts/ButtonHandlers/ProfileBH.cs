@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class ProfileBH : MonoBehaviour
 {
-    public Button exitButton, goBackButton, changeUsernameButton, changePasswordButton;
+    public Button exitButton, goBackButton, changePasswordButton;
 
     public Text username, uname, email;
 
@@ -16,11 +16,13 @@ public class ProfileBH : MonoBehaviour
     void Start()
     {
         //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
-        changeUsernameButton.onClick.AddListener(changeUsername);
         changePasswordButton.onClick.AddListener(changePassword);
 
         goBackButton.onClick.AddListener(goBackMainMenuStudent);
         exitButton.onClick.AddListener(exitGame);
+
+
+        SceneTransfer.username = "test1";
 
         username.text = "Username: " + SceneTransfer.username;
 
@@ -28,9 +30,6 @@ public class ProfileBH : MonoBehaviour
         coroutine = get_userDetails(SceneTransfer.username);
         Debug.Log(SceneTransfer.username);
         StartCoroutine(coroutine);
-
-        //uname.text = "Name: " + "temp name";
-        //email.text = "Email: " + "temp@gmail.com";
     }
 
     void exitGame()
@@ -41,17 +40,13 @@ public class ProfileBH : MonoBehaviour
 
     void goBackMainMenuStudent()
     {
+        Debug.Log("Back selected. Load Main Menu (Student).");
         SceneManager.LoadScene("Main Menu (Student)");
     }
-
-    void changeUsername()
-    {
-        Debug.Log("Mathematics World selected. Load Section Scene.");
-    }
-
     void changePassword()
     {
-        Debug.Log("Physics World selected. Load Section Scene.");
+        Debug.Log("Change Password selected. Load Password Canvas.");
+        SceneManager.LoadScene("Profile (Pwd)");
     }
 
     public IEnumerator get_userDetails(string username) // verify login, password is hashed aka send date to database
