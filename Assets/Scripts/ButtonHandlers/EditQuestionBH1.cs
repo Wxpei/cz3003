@@ -150,7 +150,7 @@ public class EditQuestionBH1 : MonoBehaviour
     }
 
     public void goBackQuestionBank(){
-        SceneManager.LoadScene("Question - View Question (Teacher)");
+        SceneManager.LoadScene("Question - Question Statistics (Teacher)");
     }
 
     public void exitGame(){

@@ -15636,7 +15636,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Edit questions
+  m_Text: Select question
 --- !u!222 &1838591419
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16772,7 +16772,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494838613738532511, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
       propertyPath: m_Text
-      value: Click me to load questions!
+      value: Load Questions
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494838613738532511, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ac9d3d51102799548ae9a8773eb42819, type: 3}
+    - target: {fileID: 3494838613738532511, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494838613738532511, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813110487477002693, guid: e06e0da91b45ac24288970ffa36bbd6a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

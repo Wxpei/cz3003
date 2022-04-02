@@ -1767,7 +1767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288, y: 148.49104}
+  m_AnchoredPosition: {x: -283, y: 148.49104}
   m_SizeDelta: {x: 96, y: 23.0179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411621816
@@ -1803,7 +1803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' question'
+  m_Text: Question
 --- !u!222 &411621817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17748,8 +17748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.0000019073486}
-  m_SizeDelta: {x: -10, y: 6.2737}
+  m_AnchoredPosition: {x: 2.5000305, y: -5.068424}
+  m_SizeDelta: {x: -14.999954, y: -3.863152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646978831
 MonoBehaviour:
@@ -18098,8 +18098,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -6.6368}
-  m_SizeDelta: {x: -10, y: 13.2737}
+  m_AnchoredPosition: {x: 8.690003, y: -11.35}
+  m_SizeDelta: {x: -2.620007, y: 8.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750245924
 MonoBehaviour:

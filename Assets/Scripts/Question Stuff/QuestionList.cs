@@ -8,6 +8,7 @@ using SimpleJSON;
 using System;
 
 
+
  public class CoroutineWithData {
      public Coroutine coroutine { get; private set; }
      public object result;
@@ -45,6 +46,9 @@ public class QuestionList : MonoBehaviour
         public static string correct_option;
         public static string topic;
         public static string difficulty;
+        public static int correct_attempts;
+        public static int total_attempts;
+        public static double percentage = 0;
         
 
     // Start is called before the first frame update
@@ -77,7 +81,8 @@ public class QuestionList : MonoBehaviour
     {
         Debug.Log ("Button clicked = " + buttonNo);
         selectQuestion(buttonNo);
-        SceneManager.LoadScene("Question - Edit Question (Teacher)");
+        // SceneManager.LoadScene("Question - Edit Question (Teacher)");
+        SceneManager.LoadScene("Question - Question Statistics (Teacher)");
     }
 
     public void selectQuestion(int i){
@@ -88,6 +93,12 @@ public class QuestionList : MonoBehaviour
         answer_3 = questionlist.question_data[i].answer_3;
         answer_4 = questionlist.question_data[i].answer_4;
         correct_answer = questionlist.question_data[i].correct_answer;
+        correct_attempts = questionlist.question_data[i].correct_attempts;
+        total_attempts = questionlist.question_data[i].total_attempts;
+        if (total_attempts != 0) {
+            percentage = (Math.Round((double)correct_attempts/total_attempts, 2)) * 100;
+        }
+        Debug.Log("Percentage: " + percentage);
         string[] answers = {answer_1, answer_2, answer_3, answer_4};
         List<string> answerList = new List<string>(answers);
         for (int j = 0; j < answerList.Count; j++){
@@ -257,6 +268,9 @@ public static class JsonHelper
         public string topic;
         public string difficulty;
         public string assignment_id;
+        public int correct_attempts;
+        public int total_attempts;
+        public double percentage;
     }
 
     [Serializable]

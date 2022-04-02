@@ -263,6 +263,9 @@ public class questionData
 	public string topic;
 	public string difficulty;
 	public string assignment_id;
+    public int correct_attempts;
+    public int total_attempts;
+    public double percentage;
 }
 
 [Serializable]
