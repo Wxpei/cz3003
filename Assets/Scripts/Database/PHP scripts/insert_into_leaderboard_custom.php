@@ -17,10 +17,20 @@
 	{
 		die("connection failed : " . $conn->$connect_error);
 	}
-
-	$sql = "INSERT INTO leaderboard_custom 
-            VALUES ('$username', '$score', '$time', '$assignment_id')";  
+	
+	$sql = "select * from leaderboard_custom WHERE username ='$username' AND assignment_id = '$assignment_id'";
 	$result = $conn ->query($sql);
+	
+	if (mysqli_num_rows($result)== 0)
+	{
+		$sql = "INSERT INTO leaderboard_custom VALUES ('$username', '$score', '$time', '$assignment_id')";  
+		$result = $conn ->query($sql);
+	}
+	else
+	{
+		$sql = "UPDATE `leaderboard_custom` SET `score`= '$score',`time`= '$time' WHERE `username` = '$username' AND `assignment_id` = '$assignment_id'";  
+		$result = $conn ->query($sql);
+	}
 	$affected = $conn -> affected_rows;
     echo $affected;
     if($affected == 1){

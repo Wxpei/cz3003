@@ -99,7 +99,6 @@ public class SectionBH : MonoBehaviour
         var y = position.y;
         foreach (var topic in Topics)
         {
-            Debug.Log(topic);
             GameObject topicButton = Instantiate(topicButtonTemplate) as GameObject;
             topicButton.SetActive(true);
 

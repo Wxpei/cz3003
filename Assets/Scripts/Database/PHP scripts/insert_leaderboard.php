@@ -21,7 +21,7 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "select * from leaderboard WHERE username ='$username'";
+	$sql = "select * from leaderboard WHERE username ='$username' AND topic = '$topic' AND difficulty = '$difficulty'";
 	$result = $conn ->query($sql);
 	
 	if (mysqli_num_rows($result)== 0)
