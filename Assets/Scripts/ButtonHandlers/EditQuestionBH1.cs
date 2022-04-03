@@ -12,7 +12,7 @@ public class EditQuestionBH1 : MonoBehaviour
 {
 
     public Button saveButton, exitButton, goBackButton;
-    public Transform topicList, diffList; 
+    public Transform topicList, difficultyList; 
     public InputField desc, option1, option2, option3, option4;  
     public IEnumerator coroutine;
     public ToggleGroup toggleGroup;
@@ -21,8 +21,6 @@ public class EditQuestionBH1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
-        Debug.Log("correct option/togglename: "+ QuestionList.correct_option);
         question_id = QuestionList.question_id;
         desc.text = QuestionList.question_description;
         option1.text = QuestionList.answer_1;
@@ -32,16 +30,14 @@ public class EditQuestionBH1 : MonoBehaviour
 
         topicList.GetComponent<Dropdown>().value = topicList.GetComponent<Dropdown>().options.FindIndex(option => option.text == QuestionList.topic);
         int topicindex = topicList.GetComponent<Dropdown>().value;
-        //topicList.GetComponent<Dropdown>().captionText.text = topicList.GetComponent<Dropdown>().options[topicindex].text;
 
-        Debug.Log("Difficulty: " + QuestionList.difficulty);
-        GameObject.Find("Dropdown - Difficulty List").GetComponent<Dropdown>().value = 1;
-        // diffList.GetComponent<Dropdown>().value = diffList.GetComponent<Dropdown>().options.FindIndex(option => option.text == QuestionList.difficulty);
-        // int diffindex = diffList.GetComponent<Dropdown>().value;
-        // diffList.GetComponent<Dropdown>().captionText.text = diffList.GetComponent<Dropdown>().options[diffindex].text;
+        difficultyList.GetComponent<Dropdown>().value = difficultyList.GetComponent<Dropdown>().options.FindIndex(option => option.text == QuestionList.difficulty);
+        int diffindex = difficultyList.GetComponent<Dropdown>().value;
         
         //toggleGroup.SetAllTogglesOff();
-        //GameObject.Find(QuestionList.correct_option).GetComponent<Toggle>().isOn = true;
+        Debug.Log("correct option number: " + QuestionList.correct_option);
+
+        GameObject.Find(QuestionList.correct_option).GetComponent<Toggle>().isOn = true;
 
         goBackButton.onClick.AddListener(goBackQuestionBank);
         exitButton.onClick.AddListener(exitGame);
@@ -65,9 +61,9 @@ public class EditQuestionBH1 : MonoBehaviour
     //Access lists text 
 
     string getDiff(){
-        int diffIndex = diffList.GetComponent<Dropdown> ().value;
+        int diffIndex = difficultyList.GetComponent<Dropdown> ().value;
 
-        List<Dropdown.OptionData> diffOptions = diffList.GetComponent<Dropdown>().options;
+        List<Dropdown.OptionData> diffOptions = difficultyList.GetComponent<Dropdown>().options;
 
         string diff = diffOptions [diffIndex].text;
 
@@ -114,6 +110,7 @@ public class EditQuestionBH1 : MonoBehaviour
         Debug.Log("Topic: " + topic);
         Debug.Log("Diff: " + difficulty);
         updateQuestion(question_id, question_description, answer_1, answer_2, answer_3, answer_4, correct_answer, topic, difficulty);
+        SceneManager.LoadScene("Question - Question Bank (Teacher)");
     }
 
     void updateQuestion(int question_id, string question_description, string answer_1, string answer_2, string answer_3, string answer_4, string correct_answer, string topic, string difficulty){
@@ -161,7 +158,7 @@ public class EditQuestionBH1 : MonoBehaviour
     void Update()
     {
         topicList.GetComponent<Dropdown>().RefreshShownValue();
-        diffList.GetComponent<Dropdown>().RefreshShownValue();
+        difficultyList.GetComponent<Dropdown>().RefreshShownValue();
     }
      public static class JsonHelper
 {
