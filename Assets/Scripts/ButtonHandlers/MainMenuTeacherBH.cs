@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuTeacherBH : MonoBehaviour
 {
-    public Button exitButton, singlePlayerButton, multiPlayerButton, settingsButton, questionBankButton, statisticsButton;
+    public Button exitButton, singlePlayerButton, multiPlayerButton, settingsButton, questionBankButton, statisticsButton, signOutButton;
 
     void Start()
     {
@@ -17,6 +17,7 @@ public class MainMenuTeacherBH : MonoBehaviour
         settingsButton.onClick.AddListener(settings);
         questionBankButton.onClick.AddListener(questionBank);
         statisticsButton.onClick.AddListener(statistics);
+        signOutButton.onClick.AddListener(signOut);
 
         SceneTransfer.accountType = "Teacher";
     }
@@ -55,5 +56,11 @@ public class MainMenuTeacherBH : MonoBehaviour
     {
         Debug.Log("Statistics selected. Load Statistics.");
         SceneManager.LoadScene("Statistics");
+    }
+
+    void signOut()
+    {
+        Debug.Log("Sign Out selected. Load Login.");
+        SceneManager.LoadScene("Login");
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuBH : MonoBehaviour
 {
-    public Button exitButton, singlePlayerButton, multiPlayerButton, editProfileButton, settingsButton;
+    public Button exitButton, singlePlayerButton, multiPlayerButton, editProfileButton, settingsButton, signOutButton;
 
     void Start()
     {
@@ -16,6 +16,7 @@ public class MainMenuBH : MonoBehaviour
         multiPlayerButton.onClick.AddListener(multiPlayerMode);
         editProfileButton.onClick.AddListener(editProfile);
         settingsButton.onClick.AddListener(settings);
+        signOutButton.onClick.AddListener(signOut);
     }
 
     void exitGame()
@@ -46,5 +47,10 @@ public class MainMenuBH : MonoBehaviour
     {
         Debug.Log("Settings selected. Load Login.");
         SceneManager.LoadScene("Setting");
+    }
+    void signOut()
+    {
+        Debug.Log("Sign Out selected. Load Login.");
+        SceneManager.LoadScene("Login");
     }
 }
