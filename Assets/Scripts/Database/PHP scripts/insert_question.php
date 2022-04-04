@@ -29,7 +29,7 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "INSERT INTO question_bank 
+	$sql = "INSERT INTO question_bank (`question_description`, `answer_1`, `answer_2`, `answer_3`, `answer_4`, `correct_answer`, `topic`, `difficulty`, `assignment_id`)
             VALUES ('$question_description', '$answer_1', '$answer_2', '$answer_3', '$answer_4', '$correct_answer', '$topic', '$difficulty', 0)";  
 	$result = $conn ->query($sql);
 	$affected = $conn -> affected_rows;
