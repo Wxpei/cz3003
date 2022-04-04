@@ -50,21 +50,30 @@ public class GameManager : MonoBehaviour
 
         playerLife = 3;
 
-
-        switch (difficulty)
+        if (assignment_id == 0)
         {
-            case "easy":
-                questionScore = 1; // score for correct question for easy mode
-                questionTimer = 10.0f;
-                break;
-            case "normal":
-                questionScore = 2; // score for correct question for medium mode
-                questionTimer = 15.0f;
-                break;
-            case "hard":
-                questionScore = 3; // score for correct question for hard mode
-                questionTimer = 20.0f;
-                break;
+            switch (difficulty)
+            {
+                case "easy":
+                    questionScore = 1; // score for correct question for easy mode
+                    questionTimer = 10.0f;
+                    break;
+                case "normal":
+                    questionScore = 2; // score for correct question for medium mode
+                    questionTimer = 15.0f;
+                    break;
+                case "hard":
+                    questionScore = 3; // score for correct question for hard mode
+                    questionTimer = 20.0f;
+                    break;
+            }
+        }
+        else
+        {
+            questionScore = 1;
+            questionTimer = 10.0f;
+            SceneTransfer.avatarLife = true;
+            SceneTransfer.avatarTime = false;
         }
 
         if (SceneTransfer.avatarTime)
@@ -114,7 +123,7 @@ public class GameManager : MonoBehaviour
         form.AddField("topic", topic);
         form.AddField("difficulty", difficulty);
         form.AddField("assignment_id", assignment_id);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/fetch_questions_2.php", form)) // sending inputs to be queried, will be done by php
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/cz3003/fetch_questions_2.php", form)) // sending inputs to be queried, will be done by php
         {
             yield return www.SendWebRequest();
             if (www.result != UnityWebRequest.Result.Success)
@@ -129,7 +138,6 @@ public class GameManager : MonoBehaviour
                 questionData_list questionlist = JsonUtility.FromJson<questionData_list>("{\"question_data\": " + jsonArray + "}");
                 //As there maybe multiple outputs, we have to store the results as a list
                 // Select the first line from the collection, and print its dialogue:
-
                
                 for (int i = 0; i < questionlist.question_data.Length; i++)
                 {
@@ -284,9 +292,8 @@ public class GameManager : MonoBehaviour
 
             currentQuestion.Add(copy[qnSelected]);
             copy.RemoveAt(qnSelected);
+
         }
     }
-
-    
 }
 
