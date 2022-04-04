@@ -15,6 +15,9 @@ public class StudentStatisticsBH : MonoBehaviour
     [SerializeField]
     private GameObject statisticsTemplate;
 
+    [SerializeField]
+    private Transform statisticsContent;
+
     public List<GameObject> statistics = new List<GameObject>();
 
     public IEnumerator coroutine;
@@ -62,6 +65,13 @@ public class StudentStatisticsBH : MonoBehaviour
             }
             else
             {
+                foreach(GameObject go in statistics) 
+                { 
+                    Destroy(go);
+                }
+
+                statistics.Clear();
+
                 //Debug.Log(www.downloadHandler.text); // The json string returned by the php file
                 string jsonArray = www.downloadHandler.text;
                 //Debug.Log(jsonArray);
@@ -72,8 +82,7 @@ public class StudentStatisticsBH : MonoBehaviour
                 var y = position.y;
                 for (int i = 0; i < leaderboardList.leaderboard_data.Length; i++)
                 {
-                    GameObject rank = Instantiate(statisticsTemplate) as GameObject;
-                    rank.SetActive(true);
+                    GameObject rank = Instantiate(statisticsTemplate, statisticsContent);
 
                     string username = leaderboardList.leaderboard_data[i].username;
                     string score = leaderboardList.leaderboard_data[i].score;
@@ -89,10 +98,9 @@ public class StudentStatisticsBH : MonoBehaviour
                     Text levelText = rank.transform.GetChild(3).GetComponent<Text>();
                     levelText.text = level;
 
-                    rank.transform.SetParent(statisticsTemplate.transform.parent, false);
-                    rank.transform.position = new Vector3(position.x, y, position.z);
+                    //rank.transform.position = new Vector3(position.x, y, position.z);
                     statistics.Add(rank.gameObject);
-                    y = y - 250;
+                    //y = y - 250;
                 }
             }
         }
