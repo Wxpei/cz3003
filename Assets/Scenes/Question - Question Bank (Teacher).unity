@@ -305,49 +305,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57485676}
   m_CullTransparentMesh: 1
---- !u!1 &78694122
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 78694124}
-  - component: {fileID: 78694123}
-  m_Layer: 0
-  m_Name: SettingsScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &78694123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78694122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8f71cb3c661c74f970b0f87c6761f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &78694124
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78694122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1108.3143, y: 866.34296, z: -821.45636}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &227324766
 GameObject:
   m_ObjectHideFlags: 0
@@ -13350,7 +13307,6 @@ GameObject:
   - component: {fileID: 1392969617}
   - component: {fileID: 1392969616}
   - component: {fileID: 1392969615}
-  - component: {fileID: 1392969614}
   m_Layer: 5
   m_Name: Add question Button
   m_TagString: Untagged
@@ -13378,24 +13334,6 @@ RectTransform:
   m_AnchoredPosition: {x: 23.91, y: 120}
   m_SizeDelta: {x: 490, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1392969614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392969612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2caf5d7973e77a14e890f4cfd08a8371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loginButton: {fileID: 0}
-  registerButton: {fileID: 0}
-  exitButton: {fileID: 1127670193}
-  userInput: {fileID: 0}
-  passwordInput: {fileID: 0}
-  textDisplay: {fileID: 0}
 --- !u!114 &1392969615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13439,31 +13377,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1392969616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1392969613}
-        m_TargetAssemblyTypeName: UnityEngine.Transform, UnityEngine
-        m_MethodName: set_hasChanged
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LoginTest, Assembly-CSharp
-        m_MethodName: printUserPass
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1392969616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13547,7 +13461,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1419325134
 GameObject:

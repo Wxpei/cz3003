@@ -17,8 +17,11 @@ public class selectTopic : MonoBehaviour
         List<string> items = new List<string>();
         items.Add("math");
         items.Add("science");
+        items.Add("social studies"); 
+        items.Add("history");
+        items.Add("geography");
 
-        foreach(var item in items){
+        foreach (var item in items){
             dropdown.options.Add(new Dropdown.OptionData() {text = item});
         }
         DropDownItemSelected(dropdown);
