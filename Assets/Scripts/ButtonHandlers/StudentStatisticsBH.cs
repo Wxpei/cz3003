@@ -98,9 +98,7 @@ public class StudentStatisticsBH : MonoBehaviour
                     Text levelText = rank.transform.GetChild(3).GetComponent<Text>();
                     levelText.text = level;
 
-                    //rank.transform.position = new Vector3(position.x, y, position.z);
                     statistics.Add(rank.gameObject);
-                    //y = y - 250;
                 }
             }
         }

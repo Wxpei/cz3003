@@ -38,9 +38,12 @@ public class CustomWorldBH : MonoBehaviour
     void joinWorld()
     {
         // Add in code to check if the room_id/assignment_id is found in the question bank table
-        int.TryParse(room_id.text, out int assign_id);
-        SceneTransfer.assignment_id = assign_id;
-        LoadSingleGame();
+        if (room_id.text != "")
+        {
+            int.TryParse(room_id.text, out int assign_id);
+            SceneTransfer.assignment_id = assign_id;
+            LoadSingleGame();
+        }
     }
 
     void LoadSingleGame()

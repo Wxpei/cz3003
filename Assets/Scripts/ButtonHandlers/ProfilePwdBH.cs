@@ -23,8 +23,6 @@ public class ProfilePwdBH : MonoBehaviour
 
         goBackButton.onClick.AddListener(goBackProfile);
         exitButton.onClick.AddListener(exitGame);
-
-        SceneTransfer.username = "test1";
     }
 
     void exitGame()
@@ -52,7 +50,7 @@ public class ProfilePwdBH : MonoBehaviour
             pwd = pwd1.text;
         }
         //Add update pwd to database
-        coroutine = update_userDetails(SceneTransfer.username, pwd);
+        //coroutine = update_userDetails(SceneTransfer.username, pwd);
         //Debug.Log(SceneTransfer.username);
         //StartCoroutine(coroutine);
     }
