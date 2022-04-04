@@ -16,7 +16,7 @@
 		die("connection failed : " . $conn->$connect_error);
 	}
 
-	$sql = "SELECT * FROM leaderboard_custom WHERE assignment_id = '$assignment_id' ORDER BY score AND time DESC" ;  
+	$sql = "SELECT * FROM leaderboard_custom WHERE assignment_id = '$assignment_id' ORDER By`score` DESC, `time`" ;  
 	$result = $conn ->query($sql);
 
 	if($result->num_rows > 0)
