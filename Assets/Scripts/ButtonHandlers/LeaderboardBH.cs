@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class LeaderboardBH : MonoBehaviour
 {
-    public Button exitButton, goBackButton;
+    public Button exitButton, goBackButton, twitterButton;
 
     public Text leaderboardtitle;
 
@@ -31,6 +31,7 @@ public class LeaderboardBH : MonoBehaviour
     {
         goBackButton.onClick.AddListener(goBackMainMenu);
         exitButton.onClick.AddListener(exitGame);
+        twitterButton.onClick.AddListener(ShareToTW);
 
         if (SceneTransfer.assignment_id == 0)
         {
@@ -168,5 +169,13 @@ public class LeaderboardBH : MonoBehaviour
 
             }
         }
+    }
+    public void ShareToTW()
+    {
+        string TWITTER_ADDRESS = "http://twitter.com/intent/tweet";
+        string descriptionParam = "Hello";
+        string appStoreLink = "http://www.YOUROWNAPPLINK.com";
+        string nameParameter = "YOUR AWESOME GAME MESSAGE!";
+        Application.OpenURL(TWITTER_ADDRESS + "?text=" + WWW.EscapeURL(nameParameter + "\n" + descriptionParam + "\n" + "Get the Game:\n" + appStoreLink));
     }
 }
